@@ -129,7 +129,7 @@ class Controller extends BaseController
         ]);
 
 
-        Mail::to($user->email)->queue(new registermail($user));
+        Mail::to($user->email)->send(new registermail($user));
 
         if ($user) {
             return redirect()->route('login')->with('registersuccess', 'registered successfully');

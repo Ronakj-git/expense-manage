@@ -63,7 +63,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <a href="{{ route('Dashboard') }}"> <button type="submit" class="btn btn-danger btn-default m-4 "
+                <a href="{{ route('welcome') }}"> <button type="submit" class="btn btn-danger btn-default m-4 "
                         data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button></a>
                 {{-- <a href="#">Sign Up</a></p> --}}
                 {{-- <p>Forgot <a href="#">Password?</a></p> --}}

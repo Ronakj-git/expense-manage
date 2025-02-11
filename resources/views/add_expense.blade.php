@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Expense Tracker UI</title>
+    <title>Expense Tracker</title>
     <link rel="stylesheet" href="{{ url('/css/add-expense.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
@@ -126,7 +126,7 @@
                     }
                 });
             });
-        
+
 
             function loadExpenses() {
                 $.ajax({

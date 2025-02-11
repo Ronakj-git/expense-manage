@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Hash;
 use PhpOffice\PhpSpreadsheet\Calculation\Category;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Log;
 
 
 class Controller extends BaseController
@@ -129,7 +129,7 @@ class Controller extends BaseController
         ]);
 
 
-        Mail::to($user->email)->send(new registermail($user));
+        Mail::to($user->email)->queue(new registermail($user));
 
         if ($user) {
             return redirect()->route('login')->with('registersuccess', 'registered successfully');
@@ -139,18 +139,21 @@ class Controller extends BaseController
     }
 
     public function verifyemail($token){
+        // print_r($token);die();
        $user= User::where ('verification_token' , $token)->first();
 
        if(!$user){
         return redirect()->route('register')->with('verifyfail','invalid token');
-       }else{
-        $user->is_verified = true;
-        $user->verification_token = null;
-        $user->save();
-        return redirect()->route('login')->with('verifiedsuccess','verification done');
+       }
+
+        $user->update([
+            'is_verified' => true,
+            'verification_token' => null,
+        ]);
+       return redirect()->route('login')->with('verifiedsuccess','verification done');
        }
 
     }
 
 
-}
+

@@ -30,7 +30,7 @@ Route::get('login',[Controller::class,'login'])->name('login');
 Route::post('loginsave',[Controller::class,'loginsave'])->name('loginsave');
 Route::get('logout',[Controller::class,'logout'])->name('logout');
 
-Route::group(['middleware' => ['PreventbackButton', 'auth']], function(){
+
 
 
         Route::get('Dashboard',[Controller::class,'Dashboard'])->middleware('auth')->name('Dashboard');
@@ -51,7 +51,8 @@ Route::group(['middleware' => ['PreventbackButton', 'auth']], function(){
 
 
 
-        Route::get('verifyemail/{token}',[Controller::class,'verifyemail'])->name('verifyemail');
+        Route::get('/verifyemail/{token}',[Controller::class,'verifyemail'])->name('verifyemail');
 
 
-});
+
+

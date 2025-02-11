@@ -19,7 +19,7 @@ class ExpenseController extends Controller
        }else{
            return redirect()->route('login')->with('error-msg','You need to login first');
        }
-       
+
     }
 
     public function addExpense(Request $request)

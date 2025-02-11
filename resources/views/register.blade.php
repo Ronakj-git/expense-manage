@@ -30,6 +30,7 @@
 
             <x-alert type="danger" message="error" />
             <x-alert type="danger" message="verifyfail" />
+            
 
 
 
